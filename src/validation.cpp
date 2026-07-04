@@ -25,8 +25,8 @@ bool isValid::checkRows(){
         memset(arr, '0', sizeof(arr));
         for(int j=0; j<9; j++){
             if(box[i][j]=='X') continue;
-            else if(arr[box[i][j]-1]=='1') return false;
-            else arr[box[i][j]-1]='1';
+            else if(arr[box[i][j]-'1']=='1') return false;
+            else arr[box[i][j]-'1']='1';
         }
     }
     return true;  
@@ -38,8 +38,8 @@ bool isValid::checkColumns(){
         memset(arr, '0', sizeof(arr));
         for(int j=0; j<9; j++){
             if(box[j][i]=='X') continue;
-            else if(arr[box[j][i]-1]=='1') return false;
-            else arr[box[j][i]-1]='1';
+            else if(arr[box[j][i]-'1']=='1') return false;
+            else arr[box[j][i]-'1']='1';
         }
     }
     return true;  
