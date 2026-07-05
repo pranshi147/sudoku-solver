@@ -1,10 +1,13 @@
 #include<iostream>
 #include "validation.h"
+#include "xfinder.h"
 
 using namespace std;
 
 int main(){
-    isValid sudoku;
-    if(!sudoku.overallCheck()) cout<<"This sudoku is not valid";
-    else cout<<"This is a valid sudoku";
+    Validator isValid;
+    if(!isValid.overallCheck()) cout<<"This sudoku is not valid"<<endl;
+    else cout<<"This is a valid sudoku"<<endl;
+    if(XFinder(isValid.getBox())) cout<<"Sudoku is incomplete"<<endl;
+    else cout<<"Sudoku is complete"<<endl;
 }

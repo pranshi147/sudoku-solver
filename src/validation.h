@@ -1,11 +1,12 @@
 #ifndef VALIDATION_H
 #define VALIDATION_H
 
-class isValid{
+class Validator{
     private:
         char box[9][9];
     public:
-        isValid();
+        Validator();
+        char (*getBox())[9];
         bool checkRows();
         bool checkColumns();
         bool boxCheck();

@@ -6,7 +6,7 @@
 
 using namespace std;
 
-isValid::isValid(){
+Validator::Validator(){
     string text;
     int k =0;
     ifstream file("../source.txt");
@@ -19,7 +19,7 @@ isValid::isValid(){
     file.close();
 }
 
-bool isValid::checkRows(){
+bool Validator::checkRows(){
     for(int i=0; i<9; i++){
         char arr[9];
         memset(arr, '0', sizeof(arr));
@@ -32,7 +32,7 @@ bool isValid::checkRows(){
     return true;  
 }
 
-bool isValid::checkColumns(){
+bool Validator::checkColumns(){
     for(int i=0; i<9; i++){
         char arr[9];
         memset(arr, '0', sizeof(arr));
@@ -45,7 +45,7 @@ bool isValid::checkColumns(){
     return true;  
 }
 
-bool isValid::boxCheck(){
+bool Validator::boxCheck(){
     char arr[9];
     int i=0;
     int k;
@@ -89,9 +89,13 @@ bool isValid::boxCheck(){
     return true;
 }
 
-bool isValid::overallCheck(){
+bool Validator::overallCheck(){
     if(!checkRows()) return false;
     if(!checkColumns()) return false;
     if(!boxCheck()) return false;
     return true;
+}
+
+char (*Validator::getBox())[9] {
+    return box;
 }
