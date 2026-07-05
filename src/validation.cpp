@@ -5,14 +5,13 @@
 #include <cstring>
 
 using namespace std;
-
 Validator::Validator(){
     string text;
     int k =0;
     ifstream file("../source.txt");
     while(getline(file, text)){
         for(int i=0; i<9; i++){
-            box[k][i]= text[i];
+            sudoku.box[k][i]= text[i];
         }
         k++;
     }
@@ -24,9 +23,9 @@ bool Validator::checkRows(){
         char arr[9];
         memset(arr, '0', sizeof(arr));
         for(int j=0; j<9; j++){
-            if(box[i][j]=='X') continue;
-            else if(arr[box[i][j]-'1']=='1') return false;
-            else arr[box[i][j]-'1']='1';
+            if(sudoku.box[i][j]=='X') continue;
+            else if(arr[sudoku.box[i][j]-'1']=='1') return false;
+            else arr[sudoku.box[i][j]-'1']='1';
         }
     }
     return true;  
@@ -37,9 +36,9 @@ bool Validator::checkColumns(){
         char arr[9];
         memset(arr, '0', sizeof(arr));
         for(int j=0; j<9; j++){
-            if(box[j][i]=='X') continue;
-            else if(arr[box[j][i]-'1']=='1') return false;
-            else arr[box[j][i]-'1']='1';
+            if(sudoku.box[j][i]=='X') continue;
+            else if(arr[sudoku.box[j][i]-'1']=='1') return false;
+            else arr[sudoku.box[j][i]-'1']='1';
         }
     }
     return true;  
@@ -54,9 +53,9 @@ bool Validator::boxCheck(){
     memset(arr, '0', sizeof(arr));
     for(i; i<k; i++){
         for(int j=0; j<3; j++){
-            if(box[i][j]=='X') continue;
-            else if(arr[box[i][j]-'1']=='1') return false;
-            else arr[box[i][j]-'1']= '1';
+            if(sudoku.box[i][j]=='X') continue;
+            else if(arr[sudoku.box[i][j]-'1']=='1') return false;
+            else arr[sudoku.box[i][j]-'1']= '1';
         }
     }
     if(k!=9) goto again;
@@ -67,9 +66,9 @@ bool Validator::boxCheck(){
     memset(arr, '0', sizeof(arr));
     for(i; i<k; i++){
         for(int j=3; j<6; j++){
-            if(box[i][j]=='X') continue;
-            else if(arr[box[i][j]-'1']=='1') return false;
-            else arr[box[i][j]-'1']= '1';
+            if(sudoku.box[i][j]=='X') continue;
+            else if(arr[sudoku.box[i][j]-'1']=='1') return false;
+            else arr[sudoku.box[i][j]-'1']= '1';
         }
     }
     if(k!=9) goto again2;
@@ -80,9 +79,9 @@ bool Validator::boxCheck(){
     memset(arr, '0', sizeof(arr));
     for(i; i<k; i++){
         for(int j=6; j<9; j++){
-            if(box[i][j]=='X') continue;
-            else if(arr[box[i][j]-'1']=='1') return false;
-            else arr[box[i][j]-'1']= '1';
+            if(sudoku.box[i][j]=='X') continue;
+            else if(arr[sudoku.box[i][j]-'1']=='1') return false;
+            else arr[sudoku.box[i][j]-'1']= '1';
         }
     }
     if(k!=9) goto again3;
@@ -94,8 +93,4 @@ bool Validator::overallCheck(){
     if(!checkColumns()) return false;
     if(!boxCheck()) return false;
     return true;
-}
-
-char (*Validator::getBox())[9] {
-    return box;
 }

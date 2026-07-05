@@ -10,5 +10,5 @@ include_directories(include)
 add_executable(SudokuSolver
     src/main.cpp
     src/validation.cpp
-    src/xfinder.cpp
+    src/frequency.cpp
 )

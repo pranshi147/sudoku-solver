@@ -1,12 +1,10 @@
 #ifndef VALIDATION_H
 #define VALIDATION_H
-
+#include "sudoku.h"
 class Validator{
-    private:
-        char box[9][9];
     public:
+        Sudoku sudoku;
         Validator();
-        char (*getBox())[9];
         bool checkRows();
         bool checkColumns();
         bool boxCheck();
