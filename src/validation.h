@@ -1,10 +1,13 @@
 #ifndef VALIDATION_H
 #define VALIDATION_H
 #include "sudoku.h"
+
+class Sudoku; // forward declaration of the sudoku class
+
 class Validator{
+    Sudoku* s = nullptr;
     public:
-        Sudoku sudoku;
-        Validator();
+        Validator(Sudoku* s);
         bool checkRows();
         bool checkColumns();
         bool boxCheck();

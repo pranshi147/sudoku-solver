@@ -11,4 +11,5 @@ add_executable(SudokuSolver
     src/main.cpp
     src/validation.cpp
     src/frequency.cpp
+    src/sudoku.cpp
 )

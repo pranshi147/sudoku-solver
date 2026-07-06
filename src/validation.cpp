@@ -2,16 +2,18 @@
 #include<fstream>
 #include<string>
 #include "validation.h"
+#include "sudoku.h" // included here to avoid circular imports
 #include <cstring>
 
 using namespace std;
-Validator::Validator(){
+Validator::Validator(Sudoku* s){
+    this->s = s;
     string text;
     int k =0;
     ifstream file("../source.txt");
     while(getline(file, text)){
         for(int i=0; i<9; i++){
-            sudoku.box[k][i]= text[i];
+            s->box[k][i]= text[i];
         }
         k++;
     }
@@ -23,9 +25,9 @@ bool Validator::checkRows(){
         char arr[9];
         memset(arr, '0', sizeof(arr));
         for(int j=0; j<9; j++){
-            if(sudoku.box[i][j]=='X') continue;
-            else if(arr[sudoku.box[i][j]-'1']=='1') return false;
-            else arr[sudoku.box[i][j]-'1']='1';
+            if(this->s->box[i][j]=='X') continue;
+            else if(arr[this->s->box[i][j]-'1']=='1') return false;
+            else arr[this->s->box[i][j]-'1']='1';
         }
     }
     return true;  
@@ -36,9 +38,9 @@ bool Validator::checkColumns(){
         char arr[9];
         memset(arr, '0', sizeof(arr));
         for(int j=0; j<9; j++){
-            if(sudoku.box[j][i]=='X') continue;
-            else if(arr[sudoku.box[j][i]-'1']=='1') return false;
-            else arr[sudoku.box[j][i]-'1']='1';
+            if(this->s->box[j][i]=='X') continue;
+            else if(arr[this->s->box[j][i]-'1']=='1') return false;
+            else arr[this->s->box[j][i]-'1']='1';
         }
     }
     return true;  
@@ -53,9 +55,9 @@ bool Validator::boxCheck(){
     memset(arr, '0', sizeof(arr));
     for(i; i<k; i++){
         for(int j=0; j<3; j++){
-            if(sudoku.box[i][j]=='X') continue;
-            else if(arr[sudoku.box[i][j]-'1']=='1') return false;
-            else arr[sudoku.box[i][j]-'1']= '1';
+            if(this->s->box[i][j]=='X') continue;
+            else if(arr[this->s->box[i][j]-'1']=='1') return false;
+            else arr[this->s->box[i][j]-'1']= '1';
         }
     }
     if(k!=9) goto again;
@@ -66,9 +68,9 @@ bool Validator::boxCheck(){
     memset(arr, '0', sizeof(arr));
     for(i; i<k; i++){
         for(int j=3; j<6; j++){
-            if(sudoku.box[i][j]=='X') continue;
-            else if(arr[sudoku.box[i][j]-'1']=='1') return false;
-            else arr[sudoku.box[i][j]-'1']= '1';
+            if(this->s->box[i][j]=='X') continue;
+            else if(arr[this->s->box[i][j]-'1']=='1') return false;
+            else arr[this->s->box[i][j]-'1']= '1';
         }
     }
     if(k!=9) goto again2;
@@ -79,9 +81,9 @@ bool Validator::boxCheck(){
     memset(arr, '0', sizeof(arr));
     for(i; i<k; i++){
         for(int j=6; j<9; j++){
-            if(sudoku.box[i][j]=='X') continue;
-            else if(arr[sudoku.box[i][j]-'1']=='1') return false;
-            else arr[sudoku.box[i][j]-'1']= '1';
+            if(this->s->box[i][j]=='X') continue;
+            else if(arr[this->s->box[i][j]-'1']=='1') return false;
+            else arr[this->s->box[i][j]-'1']= '1';
         }
     }
     if(k!=9) goto again3;
