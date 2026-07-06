@@ -6,20 +6,10 @@
 #include <cstring>
 
 using namespace std;
-Validator::Validator(Sudoku* s){
+Validator::Validator(Sudoku* s)
+{
     this->s = s;
-    string text;
-    int k =0;
-    ifstream file("../source.txt");
-    while(getline(file, text)){
-        for(int i=0; i<9; i++){
-            s->box[k][i]= text[i];
-        }
-        k++;
-    }
-    file.close();
 }
-
 bool Validator::checkRows(){
     for(int i=0; i<9; i++){
         char arr[9];

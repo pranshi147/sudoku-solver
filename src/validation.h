@@ -1,6 +1,5 @@
 #ifndef VALIDATION_H
 #define VALIDATION_H
-#include "sudoku.h"
 
 class Sudoku; // forward declaration of the sudoku class
 
