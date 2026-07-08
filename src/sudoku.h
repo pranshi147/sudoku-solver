@@ -2,6 +2,7 @@
 #define SUDOKU_H
 #include "validation.h"
 #include <iostream>
+#include <string>
 
 class Sudoku{
     private:

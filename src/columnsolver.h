@@ -4,6 +4,6 @@
 #include "sudoku.h"
 
 class Sudoku; 
-bool columnSolver(Sudoku *s, int *column, char* number);
+bool columnSolver(Sudoku *s, int *column, char number);
 
 #endif
