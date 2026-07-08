@@ -16,4 +16,5 @@ add_executable(SudokuSolver
     src/columnsolver.cpp
     src/boxsolver.cpp
     src/sudokusolver.cpp
+    src/display.cpp
 )

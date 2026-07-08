@@ -3,6 +3,7 @@
 #include "sudoku.h"
 #include "xcounter.h"
 #include "sudokusolver.h"
+#include "display.h"
 
 int main()
 {   
@@ -19,5 +20,6 @@ int main()
     }
     else{
         sudokuSolver(&s);
+        display(&s);
     }
 }
