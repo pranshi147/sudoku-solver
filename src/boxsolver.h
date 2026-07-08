@@ -8,7 +8,6 @@ class Sudoku;
 class BoxSolver{
     public:
         Sudoku* s;
-        void editor(int row, int place, char a);
 
         void Box1(char a);
         void Box2(char a);

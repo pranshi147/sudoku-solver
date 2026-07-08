@@ -2,22 +2,6 @@
 #include "boxsolver.h"
 #include "rowsolver.h"
 #include "columnsolver.h"
-#include <fstream>
-#include <string>
-using namespace std;
-
-void BoxSolver::editor(int row, int place, char a){
-    fstream file("solution.txt", ios::in | ios::out);
-    string line;
-    streampos pos = 0;
-    for(int i = 1; i < row; i++) {
-        getline(file, line);
-        pos = file.tellg();
-    }
-    file.seekp(pos + place);
-    file.put(a);
-    file.close();
-}
 
 void BoxSolver::Box1(char a){
     int total=0;
@@ -46,7 +30,7 @@ void BoxSolver::Box1(char a){
 }
 if (total!=1) return;
 else{
-    this->editor(row1, column1, a);
+    this->s->box[row1][column1]= a;
 }
 }
 
@@ -78,7 +62,7 @@ void BoxSolver::Box2(char a){
 }
 if (total!=1) return;
 else{
-    this->editor(row1, column1, a);
+    this->s->box[row1][column1]= a;
 }
 }
 
@@ -110,7 +94,7 @@ void BoxSolver::Box3(char a){
 }
 if (total!=1) return;
 else{
-    this->editor(row1, column1, a);
+    this->s->box[row1][column1]= a;
 }
 }
 
@@ -142,7 +126,7 @@ void BoxSolver::Box4(char a){
 }
 if (total!=1) return;
 else{
-    this->editor(row1, column1, a);
+    this->s->box[row1][column1]= a;
 }
 }
 
@@ -174,7 +158,7 @@ void BoxSolver::Box5(char a){
 }
 if (total!=1) return;
 else{
-    this->editor(row1, column1, a);
+    this->s->box[row1][column1]= a;
 }
 }
 
@@ -206,7 +190,7 @@ void BoxSolver::Box6(char a){
 }
 if (total!=1) return;
 else{
-    this->editor(row1, column1, a);
+    this->s->box[row1][column1]= a;
 }
 }
 
@@ -238,7 +222,7 @@ void BoxSolver::Box7(char a){
 }
 if (total!=1) return;
 else{
-    this->editor(row1, column1, a);
+    this->s->box[row1][column1]= a;
 }
 }
 
@@ -270,7 +254,7 @@ void BoxSolver::Box8(char a){
 }
 if (total!=1) return;
 else{
-    this->editor(row1, column1, a);
+    this->s->box[row1][column1]= a;
 }
 }
 
@@ -302,6 +286,6 @@ void BoxSolver::Box9(char a){
 }
 if (total!=1) return;
 else{
-    this->editor(row1, column1, a);
+    this->s->box[row1][column1]= a;
 }
 }

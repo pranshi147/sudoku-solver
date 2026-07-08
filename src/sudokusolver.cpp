@@ -9,6 +9,7 @@
 
 
 void sudokuSolver(Sudoku *s){
+    loop:
     for(int i=0; i<9; i++){
         if(xCounter(s)!=0){
         BoxSolver *b;
@@ -27,5 +28,6 @@ void sudokuSolver(Sudoku *s){
             std::cout<<"Sudoku is completed"<<std::endl;
             return;
         }
+        goto loop;
 }
 }

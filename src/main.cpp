@@ -2,6 +2,7 @@
 #include <fstream>
 #include "sudoku.h"
 #include "xcounter.h"
+#include "sudokusolver.h"
 
 int main()
 {   
@@ -13,8 +14,10 @@ int main()
     source.close();
     destination.close();
 
-    if (s.isValid){
-        std::cout << xCounter(&s)<<"\n";
-
-}
+    if (!s.isValid){
+        std::cout<<"The Sudoku is not valid"<<std::endl;
+    }
+    else{
+        sudokuSolver(&s);
+    }
 }
