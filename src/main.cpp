@@ -1,14 +1,20 @@
 #include <iostream>
+#include <fstream>
 #include "sudoku.h"
 #include "xcounter.h"
-#include "frequency.h"
 
 int main()
-{
+{   
     Sudoku s("source.txt");
-    std::cout << "After constructor\n";
+
+    std::ifstream source("source.txt");
+    std::ofstream destination("solution.txt");
+    destination << source.rdbuf();
+    source.close();
+    destination.close();
+
     if (s.isValid){
         std::cout << xCounter(&s)<<"\n";
-        std::cout << frequency(&s)<<"\n";
+
 }
 }
