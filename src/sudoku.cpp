@@ -7,7 +7,7 @@ Sudoku::Sudoku(std::string fileName) {
     isValid = false;
     readFile(fileName);   
     Validator v(this);
-    isValid = v.overallCheck();
+    isValid = v.overallCheck(); //Validity of the sudoku is checked in the beginning only.
 }
 
 void Sudoku::readFile(std::string fileName)
@@ -24,9 +24,3 @@ void Sudoku::readFile(std::string fileName)
         row++;
     }
 }
-/**
- *
- * Note there is a lot to be still implemented here and this 
- * just shows the basic structure that it should be in.
- *
- */

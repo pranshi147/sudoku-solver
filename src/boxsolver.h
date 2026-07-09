@@ -5,6 +5,7 @@
 
 class Sudoku; 
 
+/*BoxSolver class which finally starts filling the sudoku (Editing out 'X's to  numbers) using Row solving and Column solving functions.*/
 class BoxSolver{
     public:
         Sudoku* s;

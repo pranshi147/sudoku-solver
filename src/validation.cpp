@@ -2,14 +2,17 @@
 #include<fstream>
 #include<string>
 #include "validation.h"
-#include "sudoku.h" // included here to avoid circular imports
+#include "sudoku.h" 
 #include <cstring>
 
 using namespace std;
+
 Validator::Validator(Sudoku* s)
 {
     this->s = s;
 }
+
+//Checks each row if any number is recurring in same row.
 bool Validator::checkRows(){
     for(int i=0; i<9; i++){
         char arr[9];
@@ -23,6 +26,7 @@ bool Validator::checkRows(){
     return true;  
 }
 
+//Checks each column if any number is recurring in same column.
 bool Validator::checkColumns(){
     for(int i=0; i<9; i++){
         char arr[9];
@@ -36,6 +40,7 @@ bool Validator::checkColumns(){
     return true;  
 }
 
+//Checks each box if any number is recurring in same box(3x3).
 bool Validator::boxCheck(){
     char arr[9];
     int i=0;
@@ -80,6 +85,7 @@ bool Validator::boxCheck(){
     return true;
 }
 
+//An overall checking function which implements the three functions defined above alltogether.
 bool Validator::overallCheck(){
     if(!checkRows()) return false;
     if(!checkColumns()) return false;

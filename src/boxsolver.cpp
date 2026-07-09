@@ -3,6 +3,8 @@
 #include "rowsolver.h"
 #include "columnsolver.h"
 
+/*Box1 represents the top left 3x3 box and Box3 represents the bottom left 3x3 box. Box4 is the top middle 3x3 box. The iteration is from top to bottom for boxes. */
+
 void BoxSolver::Box1(char a){
     int total=0;
     int row1;

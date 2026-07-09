@@ -7,9 +7,9 @@
 #include "validation.h"
 #include "xcounter.h"
 
-
+//Main sudoku solving function which implements all the required functions for all 81 boxes.
 void sudokuSolver(Sudoku *s){
-    loop:
+    loop: //goto statement is used to run loop again and again until its completed.
     for(char i='1'; i<='9'; i++){
         if(xCounter(s)!=0){
         BoxSolver b;
@@ -29,5 +29,5 @@ void sudokuSolver(Sudoku *s){
             return;
         }
 }
-goto loop;
+goto loop; 
 }

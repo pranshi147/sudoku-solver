@@ -1,6 +1,7 @@
 #include "sudoku.h"
 #include "display.h"
 
+//Display function to print the solved sudoku in a proper 9x9 box pattern.
 void display(Sudoku *s){
     std::cout<<"-------------------"<<std::endl;
     for(int i=0; i<9; i++){
