@@ -8,13 +8,6 @@
 int main()
 {   
     Sudoku s("source.txt");
-
-    std::ifstream source("source.txt");
-    std::ofstream destination("solution.txt");
-    destination << source.rdbuf();
-    source.close();
-    destination.close();
-
     if (!s.isValid){
         std::cout<<"The Sudoku is not valid"<<std::endl;
     }
